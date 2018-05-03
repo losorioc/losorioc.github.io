@@ -97,7 +97,7 @@ var rect
 var node
 var link
 var dropDown = d3.select("#filter").append("select")
-                    .attr("name", "country-list");
+                    .attr("names", "country-list");
 	
 d3.csv("assets/dataViz/group_a_sk.csv", function(error, data) {
 daten = data
@@ -190,7 +190,15 @@ rect.on("mouseover", function(d) {
     .filter(function(d) { return d.x < width / 2; })
       .attr("x", -40 + sankey.nodeWidth())
       .attr("text-anchor", "end");
-  
+
+var options = dropDown.selectAll("option")
+           .data(data)
+         .enter()
+           .append("option");
+
+options.text(function (d) { return d.group; })
+       .attr("value", function (d) { return d.group; });
+ 	
 // Fade-Effect on mouseover
 node.on("mouseover", function(d) {
 	link.transition()        
