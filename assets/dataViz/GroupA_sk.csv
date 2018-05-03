@@ -1,17 +1,8 @@
-﻿Source,Target,Value
-Uruguay,field16,0.642857143
-Russia,field16,0.071428571
-Egypt,field16,0.071428571
-Saudi Arabia,field16,0.142857143
-Uruguay,final8,0.085714286
-Russia,final8,0.014285714
-Egypt,final8,0.014285714
-Saudi Arabia,final8,0.028571429
-Uruguay,final4,0.071428571
-Russia,final4,0.014285714
-Egypt,final4,0.014285714
-Saudi Arabia,final4,0.014285714
-Uruguay,final2,0.028571429
-Russia,final2,0
-Egypt,final2,0
-Saudi Arabia,final2,0
+source,target,value
+Barry,Elvis,2
+Frodo,Elvis,2
+Frodo,Sarah,2
+Barry,Alice,2
+Elvis,Sarah,2
+Elvis,Alice,2
+Sarah,Alice,4
