@@ -1,65 +1,66 @@
-country,target,value,color
-Uruguay,Advance,0.692307692,yellowgreen
-Saudi Arabia,Advance,0.153846154,darkblue
-Russia,Advance,0.076923077,gold
-Egypt,Advance,0.076923077,orange
-Spain,Advance,0.027027027,yellowgreen
-Portugal,Advance,0.324324324,darkblue
-Morocco,Advance,0.472972973,gold
-Iran,Advance,0.175675676,orange
-Peru,Advance,0.344086022,yellowgreen
-France,Advance,0.333333333,darkblue
-Denmark,Advance,0.258064516,gold
-Australia,Advance,0.064516129,orange
-Nigeria,Advance,0.377358491,yellowgreen
-Iceland,Advance,0.264150943,darkblue
-Croatia,Advance,0.169811321,gold
-Argentina,Advance,0.188679245,orange
-Switzerland,Advance,0.583333333,yellowgreen
-Serbia,Advance,0.226190476,darkblue
-Costa Rica,Advance,0.154761905,gold
-Brazil,Advance,0.035714286,orange
-Sweden,Advance,0.308510638,yellowgreen
-South Korea,Advance,0.329787234,darkblue
-Mexico,Advance,0.329787234,gold
-Germany,Advance,0.031914894,orange
-Tunisia,Advance,0.419354839,yellowgreen
-Panama,Advance,0.204301075,darkblue
-England,Advance,0.161290323,gold
-Belgium,Advance,0.215053763,orange
-Senegal,Advance,0.186813187,yellowgreen
-Poland,Advance,0.505494505,darkblue
-Japan,Advance,0.032967033,gold
-Colombia,Advance,0.274725275,orange
-Uruguay,Out,0.307692308,yellowgreen
-Saudi Arabia,Out,0.846153846,darkblue
-Russia,Out,0.923076923,gold
-Egypt,Out,0.923076923,orange
-Spain,Out,0.972972973,yellowgreen
-Portugal,Out,0.675675676,darkblue
-Morocco,Out,0.527027027,gold
-Iran,Out,0.824324324,orange
-Peru,Out,0.655913978,yellowgreen
-France,Out,0.666666667,darkblue
-Denmark,Out,0.741935484,gold
-Australia,Out,0.935483871,orange
-Nigeria,Out,0.622641509,yellowgreen
-Iceland,Out,0.735849057,darkblue
-Croatia,Out,0.830188679,gold
-Argentina,Out,0.811320755,orange
-Switzerland,Out,0.416666667,yellowgreen
-Serbia,Out,0.773809524,darkblue
-Costa Rica,Out,0.845238095,gold
-Brazil,Out,0.964285714,orange
-Sweden,Out,0.691489362,yellowgreen
-South Korea,Out,0.670212766,darkblue
-Mexico,Out,0.670212766,gold
-Germany,Out,0.968085106,orange
-Tunisia,Out,0.580645161,yellowgreen
-Panama,Out,0.795698925,darkblue
-England,Out,0.838709677,gold
-Belgium,Out,0.784946237,orange
-Senegal,Out,0.813186813,yellowgreen
-Poland,Out,0.494505495,darkblue
-Japan,Out,0.967032967,gold
-Colombia,Out,0.725274725,orange
+country,target,value,color,group
+Uruguay,Advance,0.692307692,yellowgreen,A
+Saudi Arabia,Advance,0.153846154,darkblue,A
+Russia,Advance,0.076923077,gold,A
+Egypt,Advance,0.076923077,orange,A
+Spain,Advance,0.027027027,yellowgreen,B
+Portugal,Advance,0.324324324,darkblue,B
+Morocco,Advance,0.472972973,gold,B
+Iran,Advance,0.175675676,orange,B
+Peru,Advance,0.344086022,yellowgreen,C
+France,Advance,0.333333333,darkblue,C
+Denmark,Advance,0.258064516,gold,C
+Australia,Advance,0.064516129,orange,C
+Nigeria,Advance,0.377358491,yellowgreen,D
+Iceland,Advance,0.264150943,darkblue,D
+Croatia,Advance,0.169811321,gold,D
+Argentina,Advance,0.188679245,orange,D
+Switzerland,Advance,0.583333333,yellowgreen,E
+Serbia,Advance,0.226190476,darkblue,E
+Costa Rica,Advance,0.154761905,gold,E
+Brazil,Advance,0.035714286,orange,E
+Sweden,Advance,0.308510638,yellowgreen,F
+South Korea,Advance,0.329787234,darkblue,F
+Mexico,Advance,0.329787234,gold,F
+Germany,Advance,0.031914894,orange,F
+Tunisia,Advance,0.419354839,yellowgreen,G
+Panama,Advance,0.204301075,darkblue,G
+England,Advance,0.161290323,gold,G
+Belgium,Advance,0.215053763,orange,G
+Senegal,Advance,0.186813187,yellowgreen,H
+Poland,Advance,0.505494505,darkblue,H
+Japan,Advance,0.032967033,gold,H
+Colombia,Advance,0.274725275,orange,H
+Uruguay,Out,0.307692308,yellowgreen,A
+Saudi Arabia,Out,0.846153846,darkblue,A
+Russia,Out,0.923076923,gold,A
+Egypt,Out,0.923076923,orange,A
+Spain,Out,0.972972973,yellowgreen,B
+Portugal,Out,0.675675676,darkblue,B
+Morocco,Out,0.527027027,gold,B
+Iran,Out,0.824324324,orange,B
+Peru,Out,0.655913978,yellowgreen,C
+France,Out,0.666666667,darkblue,C
+Denmark,Out,0.741935484,gold,C
+Australia,Out,0.935483871,orange,C
+Nigeria,Out,0.622641509,yellowgreen,D
+Iceland,Out,0.735849057,darkblue,D
+Croatia,Out,0.830188679,gold,D
+Argentina,Out,0.811320755,orange,D
+Switzerland,Out,0.416666667,yellowgreen,E
+Serbia,Out,0.773809524,darkblue,E
+Costa Rica,Out,0.845238095,gold,E
+Brazil,Out,0.964285714,orange,E
+Sweden,Out,0.691489362,yellowgreen,F
+South Korea,Out,0.670212766,darkblue,F
+Mexico,Out,0.670212766,gold,F
+Germany,Out,0.968085106,orange,F
+Tunisia,Out,0.580645161,yellowgreen,G
+Panama,Out,0.795698925,darkblue,G
+England,Out,0.838709677,gold,G
+Belgium,Out,0.784946237,orange,G
+Senegal,Out,0.813186813,yellowgreen,H
+Poland,Out,0.494505495,darkblue,H
+Japan,Out,0.967032967,gold,H
+Colombia,Out,0.725274725,orange,H
+
