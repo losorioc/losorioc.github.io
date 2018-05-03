@@ -96,6 +96,8 @@ var color = d3.scale.ordinal()
 var rect
 var node
 var link
+var dropDown = d3.select("#filter").append("select")
+                    .attr("name", "country-list");
 	
 d3.csv("assets/dataViz/group_a_sk.csv", function(error, data) {
 daten = data
