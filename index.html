@@ -89,9 +89,15 @@ var div = d3.select("body").append("div")
     .style("opacity", 0);	
 
 var color = d3.scale.ordinal()
-    .domain(["Uruguay", "Russia", "Egypt", "Saudi Arabia", "Advance", "Out"])
-    .range(["yellowgreen", "darkblue", "gold", "orange", "lawngreen", "firebrick"]);
-
+    .domain(["Uruguay", "Saudi Arabia", "Russia", "Egypt", "Spain", "Portugal", "Morocco", "Iran", "Peru",
+	"France", "Denmark", "Australia", "Nigeria", "Iceland", "Croatia", "Argentina", "Switzerland", "Serbia", "Costa Rica", 
+	"Brazil", "Sweden", "South Korea", "Mexico", "Germany", "Tunisia", "Panama", "England", "Belgium", "Senegal", "Poland", 
+	"Japan", "Colombia", "advance", "out"])
+    .range(["yellowgreen", "darkblue", "gold", "orange", "yellowgreen", "darkblue", "gold", "orange", 
+	    "yellowgreen", "darkblue", "gold", "orange", "yellowgreen", "darkblue", "gold", "orange",
+	    "yellowgreen", "darkblue", "gold", "orange", "yellowgreen", "darkblue", "gold", "orange",
+	    "yellowgreen", "darkblue", "gold", "orange", "yellowgreen", "darkblue", "gold", "orange",
+	    "lawngreen", "firebrick"]);
 var rect
 var node
 var link
