@@ -1,30 +1,52 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<title>SANKEY Experiment</title>
 <style>
+path {
+  stroke: white;
+  stroke-width: 0.25px;
+  fill: lightgrey;
+}
 
-.node rect {
-  cursor: move;
+.graph {
+	font-family: sans-serif;
+	font-size: 11px;
+}
+
+.nodesankey rect {
+  cursor: pointer;
   fill-opacity: .9;
   shape-rendering: crispEdges;
 }
 
-.node text {
+.nodesankey text {
   pointer-events: none;
-  text-shadow: 0 1px 0 #fff;
 }
 
-.link {
+.linksankey {
   fill: none;
   stroke: #000;
-  stroke-opacity: .2;
+  stroke-opacity: .6;
 }
 
-.link:hover {
-  stroke-opacity: .5;
+.linksankey:hover {
+  stroke-opacity: .9;
+}
+
+div.tooltipsankey {   
+  position: absolute;           
+  text-align: left;           
+  width: 95px;                  
+  height: 40px;                 
+  padding: 4px;             
+  font: 11px sans-serif;        
+  background: silver;   
+  border: 0px;      
+  border-radius: 8px;           
+  pointer-events: none;         
 }
 
 </style>
+
 <body>
 
 <script src="assets/dataViz/d3.v3.min.js"></script>
@@ -67,14 +89,14 @@ var div = d3.select("body").append("div")
     .style("opacity", 0);	
 
 var color = d3.scale.ordinal()
-    .domain(["SVP", "FDP", "CVP", "BDP", "GLP", "SP", "Ohne", "SVP.", "FDP.", "CVP.", "BDP.", "GLP.", "SP.", "Leer."])
-    .range(["yellowgreen", "darkblue", "orange", "gold", "lawngreen", "firebrick", "grey", "yellowgreen", "darkblue", "orange", "gold", "lawngreen", "firebrick", "grey"]);
+    .domain(["Uruguay", "Russia", "Egypt", "Saudi Arabia", "Advance", "Out"])
+    .range(["yellowgreen", "darkblue", "gold", "orange", "lawngreen", "firebrick"]);
 
 var rect
 var node
 var link
 	
-d3.csv("group_a_sk.csv", function(error, data) {
+d3.csv("assets/dataViz/group_a_sk.csv", function(error, data) {
 daten = data
   graph = {"nodes" : [], "links" : []};
 
