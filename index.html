@@ -194,14 +194,6 @@ rect.on("mouseover", function(d) {
       .attr("x", -40 + sankey.nodeWidth())
       .attr("text-anchor", "end");
 
-var options = dropDown.selectAll("option")
-           .data(data)
-         .enter()
-           .append("option");
-
-options.text(function (d) { return d.group; })
-       .attr("value", function (d) { return d.group; });
- 	
 // Fade-Effect on mouseover
 node.on("mouseover", function(d) {
 	link.transition()        
