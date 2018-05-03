@@ -2,17 +2,16 @@
 "nodes":[
 {"node":0,"name":"Egypt"},
 {"node":1,"name":"Russia"},
+{"node":5,"name":"Uruguay"},
+{"node":6,"name":"Saudi Arabia"},
 {"node":2,"name":"eliminated"},
 {"node":3,"name":"field16/First"},
 {"node":4,"name":"field16/Second"}
 ],
 "links":[
-{"source":0,"target":2,"value":0.93},
-{"source":1,"target":2,"value":0.93},
-{"source":1,"target":3,"value":0.01},
-{"source":0,"target":4,"value":0.01},
-{"source":2,"target":3,"value":0.12},
-{"source":2,"target":4,"value":0.12},
-{"source":3,"target":4,"value":1}
+{"source":0,"target":2,"value":1},
+{"source":1,"target":2,"value":1},
+{"source":5,"target":3,"value":1},
+{"source":6,"target":4,"value":1},
 ]}
 
