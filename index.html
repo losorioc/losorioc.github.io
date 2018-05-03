@@ -47,16 +47,20 @@ div.tooltipsankey {
 
 </style>
 
-<div id="filter">
-    <b>Group:</b>
-</div>
-	
 <script src="assets/dataViz/d3.v3.min.js"></script>
 <script src="assets/js/sankey.js"></script>
 <div id="chart"></div>
 <script>
-	
 
+<select id="inds">
+		<option value="apples" selected="selected">apples</option>
+		<option value="pears">pears</option>
+		<option value="tomatoes">tomatoes</option>
+</select>
+<div id="legendContainer" class="legendContainer">
+	<svg id="legend"></svg>
+</div>
+	
 // sankey //
 
 var units = "Stimmen";
