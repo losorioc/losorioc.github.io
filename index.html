@@ -60,7 +60,7 @@ var sankey = d3.sankey()
 var path = sankey.link();
 
 // load the data
-d3.json("assets/dataViz/sankey.json", function(error, graph) {
+d3.csv("assets/dataViz/sankey.csv", function(error, graph) {
 
   sankey
       .nodes(graph.nodes)
