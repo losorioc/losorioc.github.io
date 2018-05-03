@@ -1,123 +1,90 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
-<style>
-path {
-  stroke: white;
-  stroke-width: 0.25px;
-  fill: lightgrey;
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+   
+    	  <script src="assets/dataViz/d3.v3.min.js"></script>
+	  <script src="assets/dataViz/d3.v3.min.js"></script>
+    <style type="text/css">
+  
+.chart {
+  display: block;
+  margin: auto;
+  margin-top: 40px;
+}	
+	
+body { text-align: left; }
+p.source { font-style: italic; }
+a { color: blue; }
+
+svg {
+  display: block;
+  margin: auto;
 }
 
-.graph {
-	font-family: sans-serif;
-	font-size: 11px;
+text {
+  font-size: 8px;
 }
 
-.nodesankey rect {
-  cursor: pointer;
-  fill-opacity: .9;
-  shape-rendering: crispEdges;
-}
-
-.nodesankey text {
-  pointer-events: none;
-}
-
-.linksankey {
+rect {
   fill: none;
-  stroke: #000;
-  stroke-opacity: .6;
+  stroke: #fff;
 }
 
-.linksankey:hover {
-  stroke-opacity: .9;
-}
 
-div.tooltipsankey {   
-  position: absolute;           
-  text-align: left;           
-  width: 70px;                  
-  height: 40px;                 
-  padding: 4px;             
-  font: 11px sans-serif;        
-  background: silver;   
-  border: 0px;      
-  border-radius: 10px;           
-  pointer-events: none;         
-}
+    </style>
+  </head>
+  <body>
+   
+    <div id="body">
 
-</style>
-
-<div id="filter">
-<b>Group : <select id="filter"></b>
-	  <option value="A" >A</option>
-          <option value="B">B</option>
-	  <option value="C" selected>C</option>
-          <option value="D">D</option>
-	  <option value="E" >E</option>
-          <option value="F">F</option>
-</select> 
-
+CSV Filter 1 - This will filter by "sec" : <select id="sec">
+		  <option value="A" >A</option>
+          </select> <br>
+<font color="red">
 </div>
-<br>
-
-<script src="assets/dataViz/d3.v3.min.js"></script>
-<script src="assets/js/sankey.js"></script>
-<div id="chart"></div>
-<script>
-
-// sankey //
-
-var units = "Stimmen";
-
-var aspect = 0.8;
-
-var margin = {top: 10, right: 40, bottom: 10, left: 40},
-    height = 500 - margin.top - margin.bottom,
-    width = (height+margin.top+margin.bottom)/aspect - margin.left - margin.right;
+	</div>
+    
+    <script type="text/javascript">
 	
-var formatNumber = d3.format(",.0f"),
-    format = function(d) { return formatNumber(d) + " " + units; },
-    color = d3.scale.category20();
-
-var svg = d3.select("#chart").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-	.attr("class", "svgchart")
-  .append("g")
-    .attr("transform", 
-          "translate(" + margin.left + "," + margin.top + ")");
-
-var sankey = d3.sankey()
-    .nodeWidth(30)
-    .nodePadding(17)
-    .size([width, height]);
-
-var path = sankey.link();
-
-var div = d3.select("body").append("div")   
-    .attr("class", "tooltipsankey")               
-    .style("opacity", 0);	
-
-var color = d3.scale.ordinal()
-    .domain(["Uruguay", "Saudi Arabia", "Russia", "Egypt", "Spain", "Portugal", "Morocco", "Iran", "Peru", "France", "Denmark", "Australia", "Nigeria", "Iceland", "Croatia", "Argentina", "Switzerland", "Serbia", "Costa Rica", "Brazil", "Sweden", "South Korea", "Mexico", "Germany", "Tunisia", "Panama", "England", "Belgium", "Senegal", "Poland", "Japan", "Colombia", "advance", "out"])
-    .range(["yellowgreen", "darkblue", "gold", "orange", "yellowgreen", "darkblue", "gold", "orange", "yellowgreen", "darkblue", "gold", "orange", "yellowgreen", "darkblue", "gold", "orange", "yellowgreen", "darkblue", "gold", "orange", "yellowgreen", "darkblue", "gold", "orange", "yellowgreen", "darkblue", "gold", "orange", "yellowgreen", "darkblue", "gold", "orange", "lawngreen", "firebrick"]);
-var rect
-var node
-var link
-var dropDown = d3.select("#filter").append("select")
-                    .attr("names", "country-list");
+var w = 400,
+    h = 200,
+	color = d3.scale.category20b(),
+    root, 
+    node, 
+	data;
 	
+var treemap = d3.layout.treemap()
+	.round(false)
+    .size([w, h])
+    .sticky(true)
+    .children(function(d) { return d.values; }) 
+    .value(function(d) { return d.key; }); 
+	
+
+var svg = d3.select("#body").append("div")
+    .attr("class", "chart")
+    .style("width", w + "px")
+    .style("height", h + "px")
+    .append("svg:svg")
+    .attr("width", w)
+    .attr("height", h)
+    .append("svg:g")
+    .attr("transform", "translate(.5,.5)");
+		
+	//load csv and copy to global variable
 d3.csv("assets/dataViz/group_a_sk.csv", function(error, data) {
+daten = data
+  graph = {"nodes" : [], "links" : []};
 /*datanest();  
 datadraw(); */ 
 datafilter();//filter csv 
 datanest(); //nest filtered csv 
 datadraw(); //render nested and filtered csv 
 });
-	
+
 function datafilter(d){
-var group = document.getElementById("filter");
-var gp = sector.options[sector.selectedIndex].value;
+var group = document.getElementById("sec");
+var sec = group.options[group.selectedIndex].value;
 data = data.filter(function(d) { return d.sec  == sec;});
 return data;}
 
@@ -158,126 +125,7 @@ function datadraw(d){
       .style("opacity", function(d) { d.w = this.getComputedTextLength(); return d.dx > d.w ? 1 : 0; });
 	   
 	 }; 
-	
-	
-daten = data
-  graph = {"nodes" : [], "links" : []};
-
-    data.forEach(function (d) {
-      graph.nodes.push({ "name": d.source });
-      graph.nodes.push({ "name": d.target });
-      graph.links.push({ "source": d.source,
-                         "target": d.target,
-						 "color": d.color,
-                         "value": +d.value });
-     });
-
-     graph.nodes = d3.keys(d3.nest()
-       .key(function (d) { return d.name; })
-       .map(graph.nodes));
-
-     graph.links.forEach(function (d, i) {
-       graph.links[i].source = graph.nodes.indexOf(graph.links[i].source);
-       graph.links[i].target = graph.nodes.indexOf(graph.links[i].target);
-     });
-
-     graph.nodes.forEach(function (d, i) {
-       graph.nodes[i] = { "name": d };
-     });
-
-  sankey
-    .nodes(graph.nodes)
-    .links(graph.links)
-    .layout(32);
-
-link = svg.append("g").selectAll(".link")
-      .data(graph.links)
-    .enter().append("path")
-      .attr("class", "linksankey")
-      .attr("d", path)
-	  .attr("id", function(d) { return "link" + d.source.name; })
-      .style("stroke-width", function(d) { return Math.max(1, d.dy); })
-	  .style("stroke", function(d) { return d.color; });
-
-  link.on("mouseover", function(d) {      
-            div.transition()        
-                .duration(200)      
-                .style("opacity", .9);      
-            div .html("<b>" + d.source.name + "</b> ? <b>"  + d.target.name + "</b><br/>" + format(d.value))  
-                .style("left", (d3.event.pageX) + "px")     
-                .style("top", (d3.event.pageY - 28) + "px");    
-            })                  
-        .on("mouseout", function(d) {       
-            div.transition()        
-                .duration(500)      
-                .style("opacity", 0);   
-        });
-				
-node = svg.append("g").selectAll(".node")
-      .data(graph.nodes)
-    .enter().append("g")
-      .attr("class", "nodesankey")
-      .attr("transform", function(d) { 
-		  return "translate(" + d.x + "," + d.y + ")"; });
-	
-rect = node.append("rect")
-      .attr("height", function(d) { return d.dy; })
-      .attr("width", sankey.nodeWidth())
-      .style("fill", function(d) { return color(d.name); });
-
-rect.on("mouseover", function(d) {      
-            div.transition()        
-                .duration(200)      
-                .style("opacity", .9);      
-            div .html("<b>" + d.name + "</b>:<br/>" + format(d.value))  
-                .style("left", (d3.event.pageX) + "px")     
-                .style("top", (d3.event.pageY - 28) + "px");    
-            })                  
-        .on("mouseout", function(d) {       
-            div.transition()        
-                .duration(500)      
-                .style("opacity", 0);   
-        });
-	  
-  node.append("text")
-      .attr("x", 40)
-      .attr("y", function(d) { return d.dy / 2; })
-      .attr("dy", ".35em")
-      .attr("text-anchor", "start")
-      .attr("transform", null)
-      .text(function(d) { return d.name; })
-	  .attr("class", "graph")
-    .filter(function(d) { return d.x < width / 2; })
-      .attr("x", -40 + sankey.nodeWidth())
-      .attr("text-anchor", "end");
-
-var options = dropDown.selectAll("option")
-           .data(data)
-         .enter()
-           .append("option");
-
-options.text(function (d) { return d.group; })
-       .attr("value", function (d) { return d.group; });
- 	
-// Fade-Effect on mouseover
-node.on("mouseover", function(d) {
-	link.transition()        
-        .duration(700)
-		.style("opacity", .1);
-	link.filter(function(s) { return d.name == s.source.name; }).transition()        
-        .duration(700)
-		.style("opacity", 1);
-	link.filter(function(t) { return d.name == t.target.name; }).transition()        
-        .duration(700)
-		.style("opacity", 1);
-	})
-	.on("mouseout", function(d) { svg.selectAll(".linksankey").transition()        
-        .duration(700)
-		.style("opacity", 1)} ); 
- 	  	  
-});
-
-		
-</script>
-</body>
+	 
+    </script>
+  </body>
 </html>
