@@ -64,7 +64,6 @@ div.tooltipsankey {
 <script src="assets/js/sankey.js"></script>
 <div id="chart"></div>
 <script>
-	
 
 // sankey //
 
@@ -109,6 +108,58 @@ var dropDown = d3.select("#filter").append("select")
                     .attr("names", "country-list");
 	
 d3.csv("assets/dataViz/group_a_sk.csv", function(error, data) {
+/*datanest();  
+datadraw(); */ 
+datafilter();//filter csv 
+datanest(); //nest filtered csv 
+datadraw(); //render nested and filtered csv 
+});
+	
+function datafilter(d){
+var group = document.getElementById("filter");
+var gp = sector.options[sector.selectedIndex].value;
+data = data.filter(function(d) { return d.sec  == sec;});
+return data;}
+
+function datanest(d){
+ node = root = {values: d3.nest()
+      .key(function(d) { return d.sec; })
+      .rollup(function(d) {
+        return d.map(function(d) {
+          return {key: d.bud};
+        });
+      })
+      .entries(data)};
+	  return node;
+	  return root;
+	}
+
+function datadraw(d){
+  var nodes = treemap.nodes(root)
+      .filter(function(d) { return !d.values; }); 
+
+  var cell = svg.selectAll("g")
+      .data(nodes)
+    .enter().append("svg:g")
+      .attr("class", "cell")
+      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+     
+  cell.append("svg:rect")
+      .attr("width", function(d) { return d.dx - 1; })
+      .attr("height", function(d) { return d.dy - 1; })
+      .style("fill", function(d) { return color(d.parent.key); }); 
+
+  cell.append("svg:text")
+      .attr("x", function(d) { return d.dx / 2; })
+      .attr("y", function(d) { return d.dy / 2; })
+      .attr("dy", ".35em")
+      .attr("text-anchor", "middle")
+      .text(function(d) { return d.key; }) 
+      .style("opacity", function(d) { d.w = this.getComputedTextLength(); return d.dx > d.w ? 1 : 0; });
+	   
+	 }; 
+	
+	
 daten = data
   graph = {"nodes" : [], "links" : []};
 
