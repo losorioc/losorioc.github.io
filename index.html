@@ -54,17 +54,29 @@ div.tooltipsankey {
 <div id="chart"></div>
 
 <select id="inds">
-		<option value="apples" selected="selected">apples</option>
-		<option value="pears">pears</option>
-		<option value="tomatoes">tomatoes</option>
+		Group: <option value="A" selected="selected">A</option>
+		<option value="B">B</option>
+		<option value="C">C</option>
 </select>
 <div id="legendContainer" class="legendContainer">
 	<svg id="legend"></svg>
 </div>
 	
+<script>
 // sankey //
 
-<script>
+function filterJSON(json, key, value) {
+  var result = [];
+  json.forEach(function(val,idx,arr){
+    if(val[key] == value){
+    
+      result.push(val)
+    }
+  })
+  return result;
+}
+	
+	
 var units = "Stimmen";
 
 var aspect = 0.8;
@@ -104,8 +116,37 @@ var node
 var link
 
 	
-d3.csv("assets/dataViz/group_a_sk.csv", function(error, data) {
-daten = data
+d3.json("assets/dataViz/group_a_sk.json", function(error, json) {
+console.log(json)
+//	daten = data //
+
+	  json.forEach(function(d) {
+		d.value = +d.value;
+  });
+
+	d3.select('#inds')
+			.on("change", function () {
+				var sect = document.getElementById("inds");
+				var section = sect.options[sect.selectedIndex].value;
+
+				data = filterJSON(json, 'group', section);
+	      //debugger
+	      
+		    data.forEach(function(d) {
+    			d.value = +d.value;
+    			//d.year = parseDate(String(d.year));
+    			d.active = true;
+    		});
+    		
+		    
+		    //debugger
+				updateGraph(data);
+
+
+				jQuery('h1.page-header').html(section);
+			});
+	
+		
   graph = {"nodes" : [], "links" : []};
 
     data.forEach(function (d) {
