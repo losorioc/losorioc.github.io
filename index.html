@@ -22,9 +22,47 @@
     
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/smoothscroll.js"></script>
-    
+     <script src="assets/js/sankey.js"></script>   
 
   </head>
+
+	  <body data-spy="scroll" data-offset="0" data-target="#navigation">
+	   <!-- Fixed navbar -->
+	    <div id="navigation" class="navbar navbar-default navbar-fixed-top">
+	      <div class="container">
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+	          <a class="navbar-brand" href="#"><b>FIFA 2018</b></a>
+	        </div>
+	        <div class="navbar-collapse collapse">
+	          <ul class="nav navbar-nav">
+	            <li class="active"><a href="#home" class="smothscroll">Home</a></li>
+	            <li><a href="#desc" class="smothscroll">Problem Description</a></li>
+	            <li><a href="#summary" class="smothScroll">Data Summary</a></li>
+	            <li><a href="#analysis" class="smothScroll">Data Analysis</a></li>
+	 	    <li><a href="#results" class="smothScroll">Results</a></li>
+	          </ul>
+	        </div><!--/.nav-collapse -->
+	      </div>
+	    </div>
+
+
+	<section id="home" name="home"></section>
+	<div id="headerwrap">
+		<div class="container">
+ 		<img class="img-responsive" src="assets/img/fifaStadium1.jpg" alt="" style="width: 125%;">
+ 		<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+			<h1 align = "center"><b>2018 FIFA World Cup</b></h1>
+			<h3 align = "center">An exploration into FIFA World Cup data through machine learning and interactive data visualization</h3>
+			</div>
+		</div>	
+	    </div> <!--/ .container -->
+	</div><!--/ #headerwrap -->
+
 	
 <style>
 path {
