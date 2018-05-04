@@ -35,49 +35,29 @@ path {
 div.tooltipsankey {   
   position: absolute;           
   text-align: left;           
-  width: 70px;                  
+  width: 95px;                  
   height: 40px;                 
   padding: 4px;             
   font: 11px sans-serif;        
   background: silver;   
   border: 0px;      
-  border-radius: 10px;           
+  border-radius: 8px;           
   pointer-events: none;         
 }
 
 </style>
-
 <body>
 
-<script src="assets/dataViz/d3.v3.min.js"></script>
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/sankey.js"></script>
-<div id="chart"></div>
 
-<select id="inds">
-		Group: <option value="A" selected="selected">A</option>
-		<option value="B">B</option>
-		<option value="C">C</option>
-</select>
-<div id="legendContainer" class="legendContainer">
-	<svg id="legend"></svg>
-</div>
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="sankey.js"></script>
+
+<div id="chart"></div>
 	
 <script>
+
 // sankey //
 
-function filterJSON(json, key, value) {
-  var result = [];
-  json.forEach(function(val,idx,arr){
-    if(val[key] == value){
-    
-      result.push(val)
-    }
-  })
-  return result;
-}
-	
-	
 var units = "Stimmen";
 
 var aspect = 0.8;
@@ -110,33 +90,15 @@ var div = d3.select("body").append("div")
     .style("opacity", 0);	
 
 var color = d3.scale.ordinal()
-    .domain(["Uruguay", "Saudi Arabia", "Russia", "Egypt", "Spain", "Portugal", "Morocco", "Iran", "Peru", "France", "Denmark", "Australia", "Nigeria", "Iceland", "Croatia", "Argentina", "Switzerland", "Serbia", "Costa Rica", "Brazil", "Sweden", "South Korea", "Mexico", "Germany", "Tunisia", "Panama", "England", "Belgium", "Senegal", "Poland", "Japan", "Colombia", "advance", "out"])
-    .range(["yellowgreen", "darkblue", "gold", "orange", "yellowgreen", "darkblue", "gold", "orange", "yellowgreen", "darkblue", "gold", "orange", "yellowgreen", "darkblue", "gold", "orange", "yellowgreen", "darkblue", "gold", "orange", "yellowgreen", "darkblue", "gold", "orange", "yellowgreen", "darkblue", "gold", "orange", "yellowgreen", "darkblue", "gold", "orange", "lawngreen", "firebrick"]);
+    .domain(["SVP", "FDP", "CVP", "BDP", "GLP", "SP", "Ohne", "SVP.", "FDP.", "CVP.", "BDP.", "GLP.", "SP.", "Leer."])
+    .range(["yellowgreen", "darkblue", "orange", "gold", "lawngreen", "firebrick", "grey", "yellowgreen", "darkblue", "orange", "gold", "lawngreen", "firebrick", "grey"]);
+
 var rect
 var node
 var link
-
 	
-d3.json("assets/dataViz/group_a_sk.json", function(error, json) {
-console.log(json)
-//	daten = data //
-
-	  json.forEach(function(d) {
-		d.value = +d.value;
-  });
-
-	d3.select('#inds')
-			.on("change", function () {
-				var sect = document.getElementById("inds");
-				var section = sect.options[sect.selectedIndex].value;
-
-				data = filterJSON(json, 'group', section);
-	
-// generate initial graph
-data = filterJSON(json, 'group', 'A');
-updateGraph(data);
-});
-	
+d3.csv("sankeygr2015.csv", function(error, data) {
+daten = data
   graph = {"nodes" : [], "links" : []};
 
     data.forEach(function (d) {
@@ -226,7 +188,7 @@ rect.on("mouseover", function(d) {
     .filter(function(d) { return d.x < width / 2; })
       .attr("x", -40 + sankey.nodeWidth())
       .attr("text-anchor", "end");
-
+  
 // Fade-Effect on mouseover
 node.on("mouseover", function(d) {
 	link.transition()        
