@@ -6,62 +6,50 @@ path {
   stroke-width: 0.25px;
   fill: lightgrey;
 }
-
 .graph {
 	font-family: sans-serif;
 	font-size: 11px;
 }
-
 .nodesankey rect {
   cursor: pointer;
   fill-opacity: .9;
   shape-rendering: crispEdges;
 }
-
 .nodesankey text {
   pointer-events: none;
 }
-
 .linksankey {
   fill: none;
   stroke: #000;
   stroke-opacity: .6;
 }
-
 .linksankey:hover {
   stroke-opacity: .9;
 }
-
 div.tooltipsankey {   
   position: absolute;           
   text-align: left;           
-  width: 95px;                  
+  width: 70px;                  
   height: 40px;                 
   padding: 4px;             
   font: 11px sans-serif;        
   background: silver;   
   border: 0px;      
-  border-radius: 8px;           
+  border-radius: 10px;           
   pointer-events: none;         
 }
-	
 </style>
-<body>
 
+<body>
 
 <script src="assets/dataViz/d3.v3.min.js"></script>
 <script src="assets/js/sankey.js"></script>
-
 <div id="chart"></div>
-	
 <script>
-
+	
 // sankey //
-
 var units = "Stimmen";
-
 var aspect = 0.8;
-
 var margin = {top: 10, right: 40, bottom: 10, left: 40},
     height = 500 - margin.top - margin.bottom,
     width = (height+margin.top+margin.bottom)/aspect - margin.left - margin.right;
@@ -69,7 +57,6 @@ var margin = {top: 10, right: 40, bottom: 10, left: 40},
 var formatNumber = d3.format(",.0f"),
     format = function(d) { return formatNumber(d) + " " + units; },
     color = d3.scale.category20();
-
 var svg = d3.select("#chart").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -77,21 +64,17 @@ var svg = d3.select("#chart").append("svg")
   .append("g")
     .attr("transform", 
           "translate(" + margin.left + "," + margin.top + ")");
-
 var sankey = d3.sankey()
     .nodeWidth(30)
     .nodePadding(17)
     .size([width, height]);
-
 var path = sankey.link();
-
 var div = d3.select("body").append("div")   
     .attr("class", "tooltipsankey")               
     .style("opacity", 0);	
-
 var color = d3.scale.ordinal()
-	.domain(["Uruguay", "Russia", "Egypt", "Saudi Arabia", "Advance", "Out"])
-	.range(["yellowgreen", "darkblue", "gold", "orange", "lawngreen", "firebrick"]);
+    .domain(["Uruguay", "Russia", "Egypt", "Saudi Arabia", "Advance", "Out"])
+    .range(["yellowgreen", "darkblue", "gold", "orange", "lawngreen", "firebrick"]);
 var rect
 var node
 var link
@@ -99,7 +82,6 @@ var link
 d3.csv("assets/dataViz/group_a_sk.csv", function(error, data) {
 daten = data
   graph = {"nodes" : [], "links" : []};
-
     data.forEach(function (d) {
       graph.nodes.push({ "name": d.source });
       graph.nodes.push({ "name": d.target });
@@ -108,25 +90,20 @@ daten = data
 						 "color": d.color,
                          "value": +d.value });
      });
-
      graph.nodes = d3.keys(d3.nest()
        .key(function (d) { return d.name; })
        .map(graph.nodes));
-
      graph.links.forEach(function (d, i) {
        graph.links[i].source = graph.nodes.indexOf(graph.links[i].source);
        graph.links[i].target = graph.nodes.indexOf(graph.links[i].target);
      });
-
      graph.nodes.forEach(function (d, i) {
        graph.nodes[i] = { "name": d };
      });
-
   sankey
     .nodes(graph.nodes)
     .links(graph.links)
     .layout(32);
-
 link = svg.append("g").selectAll(".link")
       .data(graph.links)
     .enter().append("path")
@@ -135,7 +112,6 @@ link = svg.append("g").selectAll(".link")
 	  .attr("id", function(d) { return "link" + d.source.name; })
       .style("stroke-width", function(d) { return Math.max(1, d.dy); })
 	  .style("stroke", function(d) { return d.color; });
-
   link.on("mouseover", function(d) {      
             div.transition()        
                 .duration(200)      
@@ -161,7 +137,6 @@ rect = node.append("rect")
       .attr("height", function(d) { return d.dy; })
       .attr("width", sankey.nodeWidth())
       .style("fill", function(d) { return color(d.name); });
-
 rect.on("mouseover", function(d) {      
             div.transition()        
                 .duration(200)      
@@ -205,7 +180,6 @@ node.on("mouseover", function(d) {
 		.style("opacity", 1)} ); 
  	  	  
 });
-
 		
 </script>
 </body>
