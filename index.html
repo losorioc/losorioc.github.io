@@ -72,13 +72,14 @@ var sankey = d3.sankey()
 var path = sankey.link();
 var div = d3.select("body").append("div")   
     .attr("class", "tooltipsankey")               
-    .style("opacity", 0);	
+    .style("opacity", 0);
+var color = d3.scale.ordinal()
+    .domain(["Uruguay", "Saudi Arabia", "Russia", "Egypt", "Advance", "Out"])
+    .range(["yellowgreen", "gold", "darkblue", "orange", "lawngreen", "firebrick"]);
+
 var rect
 var node
 var link
-
-color = color(d3.scaleOrdinal(d3.schemeCategory10).range());
-color(d3.scale.ordinal().range(["hexcolor1", "hexcolor2", "hexcolor3", "hexcolor4", "hexcolor5", "hexcolor6"]).range());
 
 d3.csv("assets/dataViz/group_a_sk.csv", function(error, data) {
 daten = data
