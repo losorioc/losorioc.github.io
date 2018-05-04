@@ -1,4 +1,3 @@
-// sankey //
 var units = "Stimmen";
 var aspect = 0.8;
 var margin = {top: 10, right: 60, bottom: 10, left: 80},
