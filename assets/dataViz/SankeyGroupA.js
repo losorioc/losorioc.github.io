@@ -1,5 +1,3 @@
-<script>
-	
 // sankey //
 var units = "Stimmen";
 var aspect = 0.8;
@@ -132,4 +130,3 @@ node.on("mouseover", function(d) {
 		.style("opacity", 1)} ); 
  	  	  
 });
-				</script>
