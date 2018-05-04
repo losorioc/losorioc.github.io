@@ -49,8 +49,8 @@ div.tooltipsankey {
 <body>
 
 
-<script src="https://d3js.org/d3.v3.min.js"></script>
-<script src="sankey.js"></script>
+<script src="assets/dataVitz/d3.v3.min.js"></script>
+<script src="assets/dataVitz/sankey.js"></script>
 
 <div id="chart"></div>
 	
@@ -97,7 +97,7 @@ var rect
 var node
 var link
 	
-d3.csv("sankeygr2015.csv", function(error, data) {
+d3.csv("assets/dataVitz/group_a_sk.csv", function(error, data) {
 daten = data
   graph = {"nodes" : [], "links" : []};
 
