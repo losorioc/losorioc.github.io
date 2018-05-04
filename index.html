@@ -73,9 +73,9 @@ var path = sankey.link();
 var div = d3.select("body").append("div")   
     .attr("class", "tooltipsankey")               
     .style("opacity", 0);	
-var color = d3.scale.ordinal()
+var color = d3.scaleOrdinal(d3.schemeCategory10)
     .domain(["Uruguay", "Saudi Arabia", "Russia", "Egypt", "Advance", "Out"])
-    .range(["yellowgreen", "gold", "darkblue", "orange", "lawngreen", "firebrick"]);
+    .range(["hexcolor1", "hexcolor2", "hexcolor3", "hexcolor4", "hexcolor5", "hexcolor6"]);
 var rect
 var node
 var link
