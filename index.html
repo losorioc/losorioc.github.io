@@ -146,7 +146,11 @@ console.log(json)
 				jQuery('h1.page-header').html(section);
 			});
 	
-		
+// generate initial graph
+data = filterJSON(json, 'group', 'A');
+updateGraph(data);
+});
+	
   graph = {"nodes" : [], "links" : []};
 
     data.forEach(function (d) {
