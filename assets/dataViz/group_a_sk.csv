@@ -1,9 +1,9 @@
 source,target,value,color
 Uruguay,Advance,0.692307692,yellowgreen
-Saudi Arabia,Advance,0.153846154,darkblue
-Russia,Advance,0.076923077,gold
+Saudi Arabia,Advance,0.153846154,gold
+Russia,Advance,0.076923077,darkblue
 Egypt,Advance,0.076923077,orange
 Uruguay,Out,0.307692308,yellowgreen
-Saudi Arabia,Out,0.846153846,darkblue
-Russia,Out,0.923076923,gold
+Saudi Arabia,Out,0.846153846,gold
+Russia,Out,0.923076923,darkblue
 Egypt,Out,0.923076923,orange
