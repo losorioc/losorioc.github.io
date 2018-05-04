@@ -131,21 +131,6 @@ console.log(json)
 				var section = sect.options[sect.selectedIndex].value;
 
 				data = filterJSON(json, 'group', section);
-	      //debugger
-	      
-		    data.forEach(function(d) {
-    			d.value = +d.value;
-    			//d.year = parseDate(String(d.year));
-    			d.active = true;
-    		});
-    		
-		    
-		    //debugger
-				updateGraph(data);
-
-
-				jQuery('h1.page-header').html(section);
-			});
 	
 // generate initial graph
 data = filterJSON(json, 'group', 'A');
