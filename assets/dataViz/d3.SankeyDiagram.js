@@ -1,63 +1,3 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
-<style>
-path {
-  stroke: white;
-  stroke-width: 0.25px;
-  fill: lightgrey;
-}
-
-.graph {
-	font-family: sans-serif;
-	font-size: 11px;
-}
-
-.nodesankey rect {
-  cursor: pointer;
-  fill-opacity: .9;
-  shape-rendering: crispEdges;
-}
-
-.nodesankey text {
-  pointer-events: none;
-}
-
-.linksankey {
-  fill: none;
-  stroke: #000;
-  stroke-opacity: .6;
-}
-
-.linksankey:hover {
-  stroke-opacity: .9;
-}
-
-div.tooltipsankey {   
-  position: absolute;           
-  text-align: left;           
-  width: 95px;                  
-  height: 40px;                 
-  padding: 4px;             
-  font: 11px sans-serif;        
-  background: silver;   
-  border: 0px;      
-  border-radius: 8px;           
-  pointer-events: none;         
-}
-
-</style>
-<body>
-
-
-<script src="https://d3js.org/d3.v3.min.js"></script>
-<script src="sankey.js"></script>
-
-<div id="chart"></div>
-	
-<script>
-
-// sankey //
-
 var units = "Stimmen";
 
 var aspect = 0.8;
@@ -206,8 +146,3 @@ node.on("mouseover", function(d) {
 		.style("opacity", 1)} ); 
  	  	  
 });
-
-		
-</script>
-</body>
-</html>
