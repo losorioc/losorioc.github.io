@@ -1,9 +1,9 @@
-﻿country,target,value,color,group
-Uruguay,Advance,0.692307692,yellowgreen,A
-Saudi Arabia,Advance,0.153846154,darkblue,A
-Russia,Advance,0.076923077,gold,A
-Egypt,Advance,0.076923077,orange,A
-Russia,Out,0.923076923,gold,A
-Egypt,Out,0.923076923,orange,A
-Saudi Arabia,Out,0.846153846,darkblue,A
-Uruguay,Out,0.307692308,yellowgreen,A
+﻿country,target,value,color
+Uruguay,Advance,0.692307692,yellowgreen
+Saudi Arabia,Advance,0.153846154,darkblue
+Russia,Advance,0.076923077,gold
+Egypt,Advance,0.076923077,orange
+Russia,Out,0.923076923,gold
+Egypt,Out,0.923076923,orange
+Saudi Arabia,Out,0.846153846,darkblue
+Uruguay,Out,0.307692308,yellowgreen
