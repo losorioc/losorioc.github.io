@@ -54,24 +54,38 @@ div.tooltipsankey {
 <script src="assets/dataViz/jquery-1.10.2.js"></script>
 <div>
 <div id="chart">
-<p><b>Group A</b></p>
-	
-<Select id="filter">
-<b>Country:</b>
-</div>
-<option value="A" >A</option>
-<option value="B" >B</option>
-<option value="C" >C</option>
-<option value="D" >D</option>
-<option value="E" >E</option>
-<option value="F" >F</option>
-<option value="G" >G</option>
-<option value="H" >H</option>
-</select>
-	
-<script type="text/javascripts" src="assets/dataViz/d3.SankeyGroupA.js"></script>
 
+<Select id="filter">
+<b>Group:</b>
 </div>
-</div>	
-</body>
-</html>
+	<option value="A" >A</option>
+	<option value="B" >B</option>
+	<option value="C" >C</option>
+	<option value="D" >D</option>
+	<option value="E" >E</option>
+	<option value="F" >F</option>
+	<option value="G" >G</option>
+	<option value="H" >H</option>
+	</select>
+	
+	<div id="legendContainer" class="legendContainer">
+		<svg id="legend2"></svg>
+	</div>
+	<div id="showAll">
+		<input name="showAllButton"
+		       type="button"
+		       value="Show All"
+		       onclick="showAll()" />
+	</div>
+	<div id="clearAll">
+		<input name="clearAllButton"
+		       type="button"
+		       value="Clear All"
+		       onclick="clearAll()" />
+	</div>
+
+	<script type="text/javascripts" src="assets/dataViz/d3.SankeyGroupA.js"></script>
+	</div>
+	</div>	
+	</body>
+	</html>
