@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<title>SANKEY Experiment</title>
 <style>
 path {
   stroke: white;
@@ -45,10 +44,12 @@ div.tooltipsankey {
 
 <script src="assets/dataViz/d3.v3.min.js"></script>
 <script src="assets/js/sankey.js"></script>
-<!-- <script type="text/javascript" src="assets/dataViz/d3.SankeyGroupA.js"></script> -->
+<div id="chart"></div>
 
 <script>
-	var units = "Stimmen";
+	
+// sankey //
+var units = "Stimmen";
 var aspect = 0.8;
 var margin = {top: 10, right: 60, bottom: 10, left: 80},
     height = 500 - margin.top - margin.bottom,
@@ -179,8 +180,7 @@ node.on("mouseover", function(d) {
 		.style("opacity", 1)} ); 
  	  	  
 });
-	</script>
-	<p> should </p>
+		
+</script>
 </body>
-
 </html>
