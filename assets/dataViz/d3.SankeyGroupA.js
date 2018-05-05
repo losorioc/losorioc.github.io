@@ -10,10 +10,10 @@ var formatNumber = d3.format(",.0f"),
     format = function(d) { return formatNumber(d) + " " + units; },
     color = d3.scale.category20();
 
-var svg = d3.select("#sankeygraph").append("svg")
+var svg = d3.select("#chart").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
-	.attr("class", "svgsankeygraph")
+	.attr("class", "svgchart")
   .append("g")
     .attr("transform", 
           "translate(" + margin.left + "," + margin.top + ")");
