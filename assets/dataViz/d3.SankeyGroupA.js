@@ -1,7 +1,6 @@
 var units = "Stimmen";
 var aspect = 0.8;
 
-// Set the dimensions of the canvas / graph
 var margin = {top: 10, right: 60, bottom: 10, left: 80},
     height = 500 - margin.top - margin.bottom,
     width = (height+margin.top+margin.bottom)/aspect - margin.left - margin.right;
