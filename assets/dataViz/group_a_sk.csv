@@ -1,9 +1,9 @@
-﻿source,target,value,color
-Uruguay,Advance,0.692307692,yellowgreen
-Saudi Arabia,Advance,0.153846154,darkblue
-Russia,Advance,0.076923077,gold
-Egypt,Advance,0.076923077,orange
-Russia,Out,0.923076923,gold
-Egypt,Out,0.923076923,orange
-Saudi Arabia,Out,0.846153846,darkblue
-Uruguay,Out,0.307692308,yellowgreen
+﻿source,target,value,color,group
+Uruguay,Advance,0.692307692,darkred,A
+Saudi Arabia,Advance,0.153846154,indianred,A
+Russia,Advance,0.076923077,lightsalmon,A
+Egypt,Advance,0.076923077,mistyrose,A
+Russia,Out,0.923076923,darkred,A
+Egypt,Out,0.923076923,indianred,A
+Saudi Arabia,Out,0.846153846,lightsalmon,A
+Uruguay,Out,0.307692308,mistyrose,A
