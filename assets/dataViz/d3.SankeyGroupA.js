@@ -1,5 +1,7 @@
 var units = "Stimmen";
 var aspect = 0.8;
+
+// Set the dimensions of the canvas / graph
 var margin = {top: 10, right: 60, bottom: 10, left: 80},
     height = 500 - margin.top - margin.bottom,
     width = (height+margin.top+margin.bottom)/aspect - margin.left - margin.right;
@@ -7,6 +9,7 @@ var margin = {top: 10, right: 60, bottom: 10, left: 80},
 var formatNumber = d3.format(",.0f"),
     format = function(d) { return formatNumber(d) + " " + units; },
     color = d3.scale.category20();
+
 var svg = d3.select("#chart").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -14,6 +17,7 @@ var svg = d3.select("#chart").append("svg")
   .append("g")
     .attr("transform", 
           "translate(" + margin.left + "," + margin.top + ")");
+
 var sankey = d3.sankey()
     .nodeWidth(30)
     .nodePadding(17)
