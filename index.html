@@ -28,48 +28,60 @@
 				<div id="chart"></div>
 				<script type="text/javascript" src="assets/dataViz/d3.SankeyDiagram2.js"></script>
 				<style> /* set the CSS */
-path {
-  stroke: white;
-  stroke-width: 0.25px;
-  fill: lightgrey;
-}
-.graph {
-	font-family: sans-serif;
-	font-size: 11px;
-}
-.nodesankey rect {
-  cursor: pointer;
-  fill-opacity: .9;
-  shape-rendering: crispEdges;
-}
-.nodesankey text {
-  pointer-events: none;
-}
-.linksankey {
-  fill: none;
-  stroke: #000;
-  stroke-opacity: .6;
-}
-.linksankey:hover {
-  stroke-opacity: .9;
-}
-div.tooltipsankey {   
-  position: absolute;           
-  text-align: left;           
-  width: 70px;                  
-  height: 40px;                 
-  padding: 4px;             
-  font: 11px sans-serif;        
-  background: silver;   
-  border: 0px;      
-  border-radius: 10px;           
-  pointer-events: none;         
-}
-#inds{
-position:absolute;
-top:220px;
-left:10px;
-}
+					path {
+						stroke: white;
+						stroke-width: 0.25px;
+						fill: lightgrey;
+					}
+					.graph {
+						font-family: sans-serif;
+						font-size: 11px;
+					}
+					.nodesankey rect {
+						cursor: pointer;
+						fill-opacity: .9;
+						shape-rendering: crispEdges;
+					}
+					.nodesankey text {
+						pointer-events: none;
+					}
+					.linksankey {
+						fill: none;
+						stroke: #000;
+						stroke-opacity: .6;
+					}
+					.linksankey:hover {
+						stroke-opacity: .9;
+					}
+					div.tooltipsankey {   
+						position: absolute;           
+						text-align: left;           
+  						width: 70px;                  
+  						height: 40px;                 
+  						padding: 4px;             
+  						font: 11px sans-serif;        
+  						background: silver;   
+  						border: 0px;      
+  						border-radius: 10px;           
+  						pointer-events: none;         
+					}
+					#inds{
+						position:absolute;
+						top:220px;
+						left:10px;
+					}
+						#legendContainer{
+							position:absolute;
+							top:500px;
+							left:10px;
+							overflow: auto;
+							height:520px;
+							width:110px;
+						}
+						#legend2{
+							width:140px;
+							height:230px;
+						}
 </style>
 		</div>
 		</div>
