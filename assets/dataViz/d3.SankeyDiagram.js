@@ -1,8 +1,7 @@
 var units = "Stimmen";
-
 var aspect = 0.8;
 
-var margin = {top: 10, right: 40, bottom: 10, left: 40},
+var margin = {top: 10, right: 60, bottom: 10, left: 80},
     height = 500 - margin.top - margin.bottom,
     width = (height+margin.top+margin.bottom)/aspect - margin.left - margin.right;
 	
@@ -22,25 +21,19 @@ var sankey = d3.sankey()
     .nodeWidth(30)
     .nodePadding(17)
     .size([width, height]);
-
 var path = sankey.link();
-
 var div = d3.select("body").append("div")   
     .attr("class", "tooltipsankey")               
-    .style("opacity", 0);	
-
+    .style("opacity", 0);
 var color = d3.scale.ordinal()
-    .domain(["SVP", "FDP", "CVP", "BDP", "GLP", "SP", "Ohne", "SVP.", "FDP.", "CVP.", "BDP.", "GLP.", "SP.", "Leer."])
-    .range(["yellowgreen", "darkblue", "orange", "gold", "lawngreen", "firebrick", "grey", "yellowgreen", "darkblue", "orange", "gold", "lawngreen", "firebrick", "grey"]);
-
+    .domain(["Uruguay", "Saudi Arabia", "Russia", "Egypt", "Advance", "Out"])
+    .range(["darkred", "indianred", "lightsalmon", "mistyrose", "darkgreen", "darkgray"]);
 var rect
 var node
 var link
-	
-d3.csv("sankeygr2015.csv", function(error, data) {
+d3.csv("assets/dataViz/group_a_sk.csv", function(error, data) {
 daten = data
   graph = {"nodes" : [], "links" : []};
-
     data.forEach(function (d) {
       graph.nodes.push({ "name": d.source });
       graph.nodes.push({ "name": d.target });
@@ -49,25 +42,20 @@ daten = data
 						 "color": d.color,
                          "value": +d.value });
      });
-
      graph.nodes = d3.keys(d3.nest()
        .key(function (d) { return d.name; })
        .map(graph.nodes));
-
      graph.links.forEach(function (d, i) {
        graph.links[i].source = graph.nodes.indexOf(graph.links[i].source);
        graph.links[i].target = graph.nodes.indexOf(graph.links[i].target);
      });
-
      graph.nodes.forEach(function (d, i) {
        graph.nodes[i] = { "name": d };
      });
-
   sankey
     .nodes(graph.nodes)
     .links(graph.links)
     .layout(32);
-
 link = svg.append("g").selectAll(".link")
       .data(graph.links)
     .enter().append("path")
@@ -76,7 +64,6 @@ link = svg.append("g").selectAll(".link")
 	  .attr("id", function(d) { return "link" + d.source.name; })
       .style("stroke-width", function(d) { return Math.max(1, d.dy); })
 	  .style("stroke", function(d) { return d.color; });
-
   link.on("mouseover", function(d) {      
             div.transition()        
                 .duration(200)      
@@ -102,7 +89,6 @@ rect = node.append("rect")
       .attr("height", function(d) { return d.dy; })
       .attr("width", sankey.nodeWidth())
       .style("fill", function(d) { return color(d.name); });
-
 rect.on("mouseover", function(d) {      
             div.transition()        
                 .duration(200)      
