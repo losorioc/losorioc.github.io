@@ -158,7 +158,7 @@ groupMenu
 .data(nest)
 .enter()
 .append("option")
-.attr("value", funtio(d){
+.attr("value", funtion(d){
       return d.key;
       })
 .text(function(d){
