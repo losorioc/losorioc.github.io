@@ -149,21 +149,3 @@ node.on("mouseover", function(d) {
 		.style("opacity", 1)} ); 
  	  	  
 // Create a dropdown
-
-var groupMenu = d3.select(#inds)
-			  
-groupMenu
-.append("select")
-.selectAll(option")
-.data(nest)
-.enter()
-.append("option")
-.attr("value", funtion(d){
-      return d.key;
-      })
-.text(function(d){
-	return d.key;
-})
-
-});
-
