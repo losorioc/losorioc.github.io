@@ -148,8 +148,6 @@ node.on("mouseover", function(d) {
         .duration(700)
 		.style("opacity", 1)} ); 
  	  	  
-});
-
 // Create a dropdown
 
 var groupMenu = d3.select(#inds)
@@ -167,4 +165,5 @@ groupMenu
 	return d.key;
 })
 
+});
 
