@@ -32,15 +32,32 @@ var rect
 var node
 var link
 d3.csv("assets/dataViz/group_a_sk.csv", function(error, data) {
-daten = data
+if (error) throw error;
+
+	//Format the data
+	data.forEach(funtion(d) {
+		     	d.source = d.source;
+                        d.target = d.target;
+			d.color = d.color;
+                        d.value = +d.value;
+		        d.color = d.color;
+		        d.group = d.group;
+		     });
+	var nest = d3.nest()
+	.key(function(d){
+		return d.group;
+	})
+	.entries(data)
+	
   graph = {"nodes" : [], "links" : []};
     data.forEach(function (d) {
       graph.nodes.push({ "name": d.source });
       graph.nodes.push({ "name": d.target });
       graph.links.push({ "source": d.source,
                          "target": d.target,
-						 "color": d.color,
-                         "value": +d.value });
+			 "color": d.color,
+                         "value": +d.value,
+		       });
      });
      graph.nodes = d3.keys(d3.nest()
        .key(function (d) { return d.name; })
@@ -132,3 +149,22 @@ node.on("mouseover", function(d) {
 		.style("opacity", 1)} ); 
  	  	  
 });
+
+// Create a dropdown
+
+var groupMenu = d3.select(#inds)
+			  
+groupMenu
+.append("select")
+.selectAll(option")
+.data(nest)
+.enter()
+.append("option")
+.attr("value", funtio(d){
+      return d.key;
+      })
+.text(function(d){
+	return d.key;
+})
+
+
